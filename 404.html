@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - 404 Error</title>
+    <meta name="robots" content="noindex, follow">
+    
+    <style>
+        /* CSS Root Variables & Minimal Standard Fixes */
+        :root {
+            --accent: #d2a679;
+            --primary: #6b4226;
+            --dark: #2d1b12;
+            --light-bg: #f8f5f1;
+            --btn-gradient: linear-gradient(45deg, #6b4226, #d2a679);
+            /* Hexagon geometry math variables */
+            --hex-width: 250px;
+            --hex-height: calc(var(--hex-width) * 1.1547);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* Hexagon Container & Styling */
+        .hexagon-wrapper {
+            position: relative;
+            width: var(--hex-width);
+            height: var(--hex-height);
+            margin: 0 auto 30px auto;
+            background: var(--btn-gradient);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hexagon-inner {
+            position: absolute;
+            width: calc(var(--hex-width) - 8px);
+            height: calc(var(--hex-height) - 8px);
+            background-color: var(--light-bg);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-code {
+            font-size: 4.5rem;
+            font-weight: bold;
+            color: var(--dark);
+            line-height: 1;
+        }
+
+        .error-tag {
+            font-size: 1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Typography */
+        h1 {
+            color: var(--dark);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Utility Elements for SEO (Search & Helpful Links) */
+        .search-container {
+            margin-bottom: 30px;
+        }
+
+        .search-form {
+            display: flex;
+            justify-content: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-right: none;
+            border-radius: 25px 0 0 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+        }
+
+        .search-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .search-submit:hover {
+            background: var(--dark);
+        }
+
+        .links-container {
+            margin-top: 20px;
+        }
+
+        .links-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        /* Buttons & Navigation Links */
+        .btn-home {
+            display: inline-block;
+            background: var(--btn-gradient);
+            color: white;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(107, 66, 38, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 66, 38, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="hexagon-wrapper">
+            <div class="hexagon-inner">
+                <div class="error-code">404</div>
+                <div class="error-tag">Lost</div>
+            </div>
+        </div>
+
+        <h1>Oops! Page Not Found</h1>
+        <p>The link you followed might be broken, or the page may have been moved or deleted. Let's get you back on track.</p>
+
+        <div class="search-container">
+            <form action="/search" method="get" class="search-form">
+                <input type="text" name="q" class="search-input" placeholder="Search our site..." required aria-label="Search">
+                <button type="submit" class="search-submit">Search</button>
+            </form>
+        </div>
+
+        <a href="/" class="btn-home">Return to Homepage</a>
+
+        <div class="links-container">
+            <div class="links-title">Or visit one of these helpful pages:</div>
+            <div class="nav-links">
+                <a href="/blog">Our Blog</a>
+                <a href="/services">Services</a>
+                <a href="/about">About Us</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
